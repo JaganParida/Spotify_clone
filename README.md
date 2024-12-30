@@ -5,3 +5,7 @@ A Spotify UI clone project using only HTML and CSS focuses on recreating Spotify
 # Note
 
 Here also add the target tag for redirecting to original spotify website page for some songs.
+
+# view live in this link
+
+https://jaganparida.github.io/Spotify_clone/
