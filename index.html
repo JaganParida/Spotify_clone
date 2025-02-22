@@ -17,362 +17,795 @@
 </head>
 
 <body>
+    <div class="top-navbar">
+        <div class="logo"><img src="Assets/whitelogo.png" alt=""></div>
+        <div class="search-bar">
+            <div class="home-icon">
+                <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="search" placeholder="What do you want to play?">
+                <div class="browse">
+                    <span class="line"></span>
+                    <i class="fa-solid fa-box-archive icon"></i>
+                </div>
+            </div>
+            <div class="premium">
+                <button>Explore premium</button>
+            </div>
+            <div class="install">
+                <button><i class="fa-regular fa-circle-down"></i> &nbsp; Install App</button>
+            </div>
+        </div>
+
+
+    </div>
     <div class="main">
         <div class="sidebar">
-            <div class="nav">
-                <div class="nav-option" style="opacity: 1;">
-                    <i class="fa-solid fa-house"></i>
-                    <a href="#">Home</a>
-                </div>
-                <div class="nav-option">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <a href="https://open.spotify.com/search">Search</a>
-                </div>
-            </div>
             <div class="library">
-                <div class="options">
-                    <div class="lib-option nav-option">
-                        <img src="Assets/library_icon.png">
-                        <a href="#">Search</a>
+                <div class="lib-opt">
+                    <div class="options">
+                        <div class="lib-option">
+                            <img src="Assets/library_icon.png">
+                            <a href="#">Search</a>
+                        </div>
+                        <div class="icons">
+                            <i class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
                     </div>
-                    <div class="icons">
-                        <i class="fa-solid fa-plus"></i>
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <div class="options-button">
+                        <button class="playlist">
+                            Playlists
+                        </button>
+                        <button class="artist">
+                            Artists
+                        </button>
+                    </div>
+                    <div class="list">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <div class="recent">
+                            Recent
+                            <i class="fa-solid fa-list-ul"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="lib-box">
-                    <p class="box-p1"> Create your first playlist </p>
-                    <p class="box-p2">It's easy, we'll help you</p>
-                    <button class="badge">Create Playlist</button>
-                </div>
-                <div class="lib-box">
-                    <p class="box-p1"> Let's find some podcasts to follow </p>
-                    <p class="box-p2">We'll keep update on now episoges</p>
-                    <button class="badge">Brouse podcasts</button>
-                </div>
-            </div>
 
-            <div class="about_singer">
-                <div class="famous-songs">
-                    <img src="Assets/Darshanraval.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/1yVVBaJYs2V0KPGeKZpgeQ">Darshan
-                                Raval</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/1yVVBaJYs2V0KPGeKZpgeQ">All songs</a>
-                            <i class="fa-solid fa-heart" style="color: #74C0FC;"></i>
-                        </h6>
+                <div class="singer-list">
+                    <div class="famous-songs " id="liked">
+                        <img src="Assets/like.jpeg" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a href="https://open.spotify.com/collection/tracks">Liked
+                                    Songs</a></h5>
+                            <p class="all"><a href="https://open.spotify.com/collection/tracks"><i
+                                        class="fa-solid fa-thumbtack"></i>
+                                    Playlists </a>
+
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/arijitsingh.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"> <a href="https://open.spotify.com/playlist/7qxn6GsFH77ghVtKzOnAYA">Arijit
-                                Singh</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/7qxn6GsFH77ghVtKzOnAYA">All
-                                songs.....</a></h6>
+                    <div class="famous-songs">
+                        <img src="Assets/divine.jpeg" alt="">
+                        <div class="name">
+                            <h5 class="singer"> <a
+                                    href="https://open.spotify.com/playlist/7qxn6GsFH77ghVtKzOnAYA">DIVINE</a></h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/7qxn6GsFH77ghVtKzOnAYA">Artist</a></h6>
+                        </div>
                     </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/jubinnautiyal.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/artist/1tqysapcCh1lWEAc9dIFpa">Jubin
-                                Nautiyal</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/artist/1tqysapcCh1lWEAc9dIFpa">All songs
-                            </a><i class="fa-solid fa-heart" style="color: #10a274;"></i></h6>
+                    <div class="famous-songs">
+                        <img src="Assets/badshah.jpeg" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a
+                                    href="https://open.spotify.com/artist/1tqysapcCh1lWEAc9dIFpa">Badshah</a></h5>
+                            <h6 class="all"><a href="https://open.spotify.com/artist/1tqysapcCh1lWEAc9dIFpa">Artist
+                                </a></h6>
+                        </div>
                     </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/Bpraak.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">B
-                                Praak</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">All
-                                songs</a><i class="fa-solid fa-heart" style="color: #ffffff;"></i></h6>
+                    <div class="famous-songs">
+                        <img src="Assets/ranjit.png" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">Ranjit
+                                    Bawa</a></h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">Artist</a></h6>
+                        </div>
                     </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/hindisong.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">Trending
-                                Hindi</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">All
-                                songs....... </a></h6>
+                    <div class="famous-songs">
+                        <img src="Assets/Jubin1.jpeg" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">Jubin
+                                    Nautiyal
+                                </a></h5>
+                            <h6 class="all"><a href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">Artist
+                                </a></h6>
+                        </div>
                     </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/telgu.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">Best
-                                Telgu</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">All
-                                songs</a><i class="fa-solid fa-heart" style="color: #B197FC;"></i></h6>
+                    <div class="famous-songs">
+                        <img src="Assets/ar.jpeg" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a
+                                    href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">A.R.Rahman</a></h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">Artist</a></h6>
+                        </div>
                     </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/punjabi.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">Best
-                                Punjabi</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">All songs</a>
-                        </h6>
+                    <div class="famous-songs">
+                        <img src="Assets/yoyo.jpeg" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">Yo Yo
+                                    Honey Singh</a></h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">Artist</a>
+                            </h6>
+                        </div>
                     </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/mantu churia.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/0PV7KbLRx4n8jha3QdwRpj">Mantu
-                                Churia</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/0PV7KbLRx4n8jha3QdwRpj">All songs</a>
-                            <i class="fa-solid fa-heart" style="color: #74C0FC;"></i>
-                        </h6>
+                    <div class="famous-songs">
+                        <img src="Assets/ammy.png" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a href="https://open.spotify.com/playlist/0PV7KbLRx4n8jha3QdwRpj">Ammy
+                                    Virk</a></h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/0PV7KbLRx4n8jha3QdwRpj">Artist</a>
+
+                            </h6>
+                        </div>
                     </div>
+                    <div class="famous-songs">
+                        <img src="Assets/bprak.png" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">B
+                                    Praak</a></h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">Artist</a></h6>
+                        </div>
+                    </div>
+                    <div class="famous-songs">
+                        <img src="Assets/sidhu.png" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">Sidhu
+                                    Moose Wala</a></h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">Artist</a></h6>
+                        </div>
+                    </div>
+                    <div class="famous-songs">
+                        <img src="Assets/vishal.png" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a
+                                    href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">Vishal-Shekhar</a>
+                            </h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">Artist</a></h6>
+                        </div>
+                    </div>
+                    <div class="famous-songs">
+                        <img src="Assets/shubha.png" alt="">
+                        <div class="name">
+                            <h5 class="singer"><a
+                                    href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">Shubhneet Singh</a>
+                            </h5>
+                            <h6 class="all"><a
+                                    href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">Artist</a>
+                            </h6>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="famous-songs"></div>
-            <div class="name"></div>
         </div>
 
         <div class="main-content">
-            <div class="sticky-nav">
-                <div class="sticky-nav-icons">
-                    <img src="Assets/backward_icon.png" alt="">
-                    <img src="/Projects/Spotify clone/Assets/forward_icon.png" class="hide" alt="">
-                </div>
-                <div class="sticky-nav-options">
-                    <button class="badge nav-item hide"><a
-                            href="/Frontend/CSS/HTML for CSS/CSS Part 6/Assignment Qs3.html"
-                            style="color: black;">Explore Premium</a></button>
-                    <button class="badge nav-item" style="background-color: black; color: white;"><i
-                            class="fa-regular fa-circle-down" style="margin-right: 5px;"></i><a
-                            href="https://open.spotify.com/download">Install App</a></button>
-                    <i class="fa-regular fa-user nav-item"></i>
-                </div>
+            <div class="button-nav">
+                <button id="all">All</button>
+                <button class="music">Music</button>
+                <button class="music">Podcasts</button>
             </div>
-
             <div class="trending">
                 <div class="famous-songs">
-                    <img src="Assets/Darshanraval.png" alt="">
+                    <img src="Assets/fam1.png" alt="">
                     <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/1yVVBaJYs2V0KPGeKZpgeQ">Darshan
-                                Raval</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/1yVVBaJYs2V0KPGeKZpgeQ">All songs</a>
-                            <i class="fa-solid fa-heart" style="color: #74C0FC;"></i>
-                        </h6>
+                        <h5 class="singer"><a href="https://open.spotify.com/playlist/1yVVBaJYs2V0KPGeKZpgeQ">REELS
+                                TRENDING HINDI SONGS-INSTA
+                                REEL SONGS...</a>
+                        </h5>
                     </div>
                 </div>
                 <div class="famous-songs">
-                    <img src="Assets/arijitsingh.png" alt="">
+                    <img src="Assets/fam2.png" alt="">
                     <div class="name">
                         <h5 class="singer"> <a href="https://open.spotify.com/playlist/7qxn6GsFH77ghVtKzOnAYA">Arijit
-                                Singh</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/7qxn6GsFH77ghVtKzOnAYA">All
-                                songs.....</a></h6>
+                                Singh All
+                                songs &nbsp;<i style="color: red;" class="fa-solid fa-heart"></i></a></h5>
                     </div>
                 </div>
                 <div class="famous-songs">
-                    <img src="Assets/jubinnautiyal.png" alt="">
+                    <img src="Assets/fam3.png" alt="">
                     <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/artist/1tqysapcCh1lWEAc9dIFpa">Jubin
-                                Nautiyal</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/artist/1tqysapcCh1lWEAc9dIFpa">All songs
-                            </a><i class="fa-solid fa-heart" style="color: #10a274;"></i></h6>
+                        <h5 class="singer"><a href="https://open.spotify.com/artist/1tqysapcCh1lWEAc9dIFpa">Hawa
+                                Banke</a></h5>
                     </div>
                 </div>
                 <div class="famous-songs">
-                    <img src="Assets/Bpraak.png" alt="">
+                    <img src="Assets/fam4.png" alt="">
                     <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">B
-                                Praak</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">All
-                                songs</a><i class="fa-solid fa-heart" style="color: #ffffff;"></i></h6>
+                        <h5 class="singer"><a href="https://open.spotify.com/playlist/1DUPvsgoguZv3qxdzoTqfI">Nazara Ke
+                                Teer chalagi-vikram
+                                sarkar</a></h5>
                     </div>
                 </div>
                 <div class="famous-songs">
-                    <img src="Assets/hindisong.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">Trending
-                                Hindi</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">All
-                                songs....... </a></h6>
-                    </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/telgu.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">Best
-                                Telgu</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">All
-                                songs</a><i class="fa-solid fa-heart" style="color: #B197FC;"></i></h6>
-                    </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/punjabi.png" alt="">
-                    <div class="name">
-                        <h5 class="singer"><a href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">Best
-                                Punjabi</a></h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">All songs</a>
-                        </h6>
-                    </div>
-                </div>
-                <div class="famous-songs">
-                    <img src="Assets/sambalpuri.png" alt="">
+                    <img src="Assets/fam5.png" alt="">
                     <div class="name">
                         <h5 class="singer"><a
-                                href="https://open.spotify.com/playlist/1qvcBGS6BOhFFOo0Bci8HQ">Odia(Sambalpuri..)</a>
+                                href="https://open.spotify.com/playlist/4nqbYFYZOCospBb4miwHWy">Sicario</a></h5>
+
+                    </div>
+                </div>
+                <div class="famous-songs">
+                    <img src="Assets/fam6.png" alt="">
+                    <div class="name">
+                        <h5 class="singer"><a href="https://open.spotify.com/playlist/6dEe2unrmszTGy7u8uTc2f">Ijazzat
+                                Hai</a></h5>
+                    </div>
+                </div>
+                <div class="famous-songs">
+                    <img src="Assets/fam7.png" alt="">
+                    <div class="name">
+                        <h5 class="singer"><a href="https://open.spotify.com/playlist/5YNzUa9VncvzxQtceLMqcx">BEST OF
+                                JUBIN NAUTIYAL
+                            </a></h5>
+                    </div>
+                </div>
+                <div class="famous-songs">
+                    <img src="Assets/fam8.png" alt="">
+                    <div class="name">
+                        <h5 class="singer"><a href="https://open.spotify.com/playlist/1qvcBGS6BOhFFOo0Bci8HQ">Hansraj
+                                Raghuwanshi</a>
                         </h5>
-                        <h6 class="all"><a href="https://open.spotify.com/playlist/1qvcBGS6BOhFFOo0Bci8HQ">All songs</a>
-                            <i class="fa-solid fa-heart" style="color: #74C0FC;"></i>
-                        </h6>
                     </div>
                 </div>
             </div>
-            <h2>Recently Played</h2>
+            <h2>Jump back in</h2>
             <div class="cards-container">
                 <div class="card">
-                    <img src="Assets/krishnaterihogyi.png" class="card-img" alt="">
-                    <p class="card-title">Krishna songs...</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img class="card-img" src="Assets/l1img1.png">
+                    <div class="name">
+                        <span>Mithila ka kan kan</span>
+                        <span>khila jamai raja ram...</span>
+                        <span class="one">Maanya Arora</span>
+                    </div>
+
                 </div>
 
                 <div class="card">
-                    <img src="Assets/sajinire.png" class="card-img" alt="">
-                    <p class="card-title">Sajini Re...</p>
-                    <p class="card-info">Your daily Played of the most liked ...<i class="fa-solid fa-heart"
-                            style="color: #ffffff;"></i></p>
+                    <img src="Assets/l1img2.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>BEST OF JUBIN</span>
+                        <span>NAUTIYAL &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Playlist By Santu&nbsp;&nbsp;</span>
+                        <span class="one">Kumar Mondal</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/ishq.png" class="card-img" alt="">
-                    <p class="card-title">Ishq"From:Lost..</p>
-                    <p class="card-info">Your daily Played of the most loved ...</p>
+                    <img src="Assets/l1img3.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Jubin Nautiyal All</span>
+                        <span>Hits Songs | Raata...</span>
+                        <span class="one">Raatan Lambiya, Tum&nbsp;&nbsp;</span>
+                        <span class="one">Hi Aana, Humnava...</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/strre2.png" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img src="Assets/l1img4.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Darshan Raval all</span>
+                        <span>songs <i style="color: rgb(54, 54, 255);"
+                                class="fa-solid fa-heart"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Darshan Raval All&nbsp;&nbsp;</span>
+                        <span class="one">Songs <i style="color: rgb(54, 54, 255);"
+                                class="fa-solid fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l1img5.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Ishq (From</span>
+                        <span>"Lost;Found")&nbsp;</span>
+                        <span class="one">Faheem Abdullah,Rauhan &nbsp;&nbsp;</span>
+                        <span class="one">Malik, Amir Ameer</span>
+                    </div>
                 </div>
 
+                <div class="card">
+                    <img src="Assets/l1img6.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Odia sad songs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span><i style="color: rgb(255, 221, 0);" class="fa-solid fa-face-sad-tear"></i>&nbsp;&nbsp;<i
+                                style="color: red;" class="fa-solid fa-heart-crack"></i></span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <img src="Assets/l1img7.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>All krishna songs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span><i style="color: red;" class="fa-solid fa-heart-crack"></i> &nbsp;<i
+                                style="color: rgb(255, 196, 0);"
+                                class="fa-solid fa-face-kiss-wink-heart"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">By Vishal</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l1img8.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Aradhya (From</span>
+                        <span>"Kushi")(Hindi)&nbsp;</span>
+                        <span class="one">Hesham Abdul Wahab, &nbsp;&nbsp;</span>
+                        <span class="one">Jubin Nautiyal, Palak...</span>
+                    </div>
+                </div>
             </div>
 
-            <h2>Trending now near you</h2>
+            <h2>Editors Pick</h2>
             <div class="cards-container">
                 <div class="card">
-                    <img src="Assets/card2img.jpeg" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img class="card-img" src="Assets/l2img1.png">
+                    <div class="name">
+                        <span class="one">Party-ready, the biggest</span>
+                        <span class="one">Bollywood dance track...</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/card3img.jpeg" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img src="Assets/l2img2.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Late night cool, & these</span>
+                        <span class="one">soothing tunes</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/card4img.jpeg" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img src="Assets/l2img3.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Soothe your broken</span>
+                        <span class="one">heart with these...</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/merebaba.png" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img src="Assets/l2img4.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Soulful tunes for the</span>
+                        <span class="one">heart that has loved an...</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l2img5.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Sit back, and chill with</span>
+                        <span class="one">Bollywood's easygoing...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l2img6.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Inhale & exhale to the</span>
+                        <span class="one">beats of Lofi</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l2img7.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Bollywood's &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">measuring ode to th...</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l2img8.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Snuggle under that cosy</span>
+                        <span class="one">blanket with your love...</span>
+                    </div>
                 </div>
             </div>
 
             <h2>Best of artists</h2>
             <div class="cards-container">
                 <div class="card">
-                    <img src="Assets/arijit_singh.png" class="card-img" alt="">
-                    <p class="card-title">Ariji Singh</p>
-                    <p class="card-info">Bollywood corner's essential songs.</p>
+                    <img class="card-img" src="Assets/l3img1.png">
+                    <div class="name">
+                        <span class="one">Bollywood crooner's</span>
+                        <span class="one">essential songs</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/darshan.png" class="card-img" alt="">
-                    <p class="card-title">Darshan Raval</p>
-                    <p class="card-info">All songs................<i class="fa-solid fa-heart"
-                            style="color: #74C0FC;"></i>The essenetial tracks.</p>
+                    <img src="Assets/l3img2.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">This Udit Narayan. The</span>
+                        <span class="one">essential tracks, all in o...</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/jubin.png" class="card-img" alt="">
-                    <p class="card-title">Jubin Nautiyal</p>
-                    <p class="card-info">All songs................<i class="fa-solid fa-heart"
-                            style="color: #10a274;"></i>The essenetial tracks.</p>
+                    <img src="Assets/l3img3.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">This is Darshan Raval.The</span>
+                        <span class="one">essential tracks, all...</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/badsaah.png" class="card-img" alt="">
-                    <p class="card-title">Badshah</p>
-                    <p class="card-info">Badshah's essential tracks all in one..</p>
+                    <img src="Assets/l3img4.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">This is Jubin Nautiyal.The</span>
+                        <span class="one">essential tracks, all...</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l3img5.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">This is Atif Aslam.The</span>
+                        <span class="one">essential tracks, all...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l3img6.jpg" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">This is Vishal Mishra.The</span>
+                        <span class="one">essential tracks, all...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l3img7.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">This is Sachin-Jigar.The</span>
+                        <span class="one">essential tracks, all...</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l3img8.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">This is Sachet Tandon.</span>
+                        <span class="one">The essential tracks, all...</span>
+                    </div>
                 </div>
             </div>
 
-            <h2>Recomended stations</h2>
+            <h2>Popular albums and singles</h2>
             <div class="cards-container">
                 <div class="card">
-                    <img src="Assets/jubin_recomended.png" class="card-img" alt="">
-                    <p class="card-title">Jubin Nautiyal</p>
-                    <p class="card-info">With Payal Dev,Tanishk Bagchi</p>
+                    <img class="card-img" src="Assets/l4img1.png">
+                    <div class="name">
+                        <span>Sanam Teri Kasam</span>
+                        <span>(Original Motion...</span>
+                        <span class="one">Himesh Reshammiya,</span>
+                        <span class="one">Sameer Anjaan, Subrat...</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/guru_recomended.png" class="card-img" alt="">
-                    <p class="card-title">Guru Randhawa</p>
-                    <p class="card-info">With Harrdy Sandhu,Badshah, Yo Yo... </p>
+                    <img src="Assets/l4img2.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Ashiqui2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Mithoon, Ankit Tiwari, Jeet</span>
+                        <span class="one">Gannguli</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/ammy_recomended.png" class="card-img" alt="">
-                    <p class="card-title">Ammy Virk</p>
-                    <p class="card-info">With Ninja,Gurnam Bhular,Mankirt...</p>
+                    <img src="Assets/l4img3.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Glory &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Yo Yo Honey Singh</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/mitraz.png" class="card-img" alt="">
-                    <p class="card-title">Mitraz</p>
-                    <p class="card-info">With Aditya Rikhari,Abdul Hannan,Anu....</p>
+                    <img src="Assets/l4img4.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Sahiba
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Jasleen Royal, Stebin Ben,</span>
+                        <span class="one">Vijay Deverakonda</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l4img5.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Ultimate Love Songs-</span>
+                        <span>Arijit Singh &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Arijit Singh</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l4img6.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Yeh Jawaani Hai</span>
+                        <span>Deewani
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Pritam</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l4img7.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Making Memories</span>
+                        <span class="one">Karan Aujla, lkky</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l4img8.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Who (Remixes)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Jimin</span>
+                    </div>
                 </div>
             </div>
 
-            <h2>Feature charts</h2>
+            <h2>India's Best</h2>
             <div class="cards-container">
                 <div class="card">
-                    <img src="Assets/card5img.jpeg" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img class="card-img" src="Assets/l5img1.png">
+                    <div class="name">
+                        <span class="one">Hottest tracks from your</span>
+                        <span class="one">Favorite l-Pop Icons....</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/card6img.jpeg" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img src="Assets/l5img2.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Most exciting artists</span>
+                        <span class="one">from the Indian Indie...</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/card1img.jpeg" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img src="Assets/l5img3.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">India's Rap Scene.</span>
+                        <span class="one">Cover-Seedhe Maut</span>
+                    </div>
                 </div>
 
                 <div class="card">
-                    <img src="Assets/card5img.jpeg" class="card-img" alt="">
-                    <p class="card-title">Top-50-Global</p>
-                    <p class="card-info">Your daily updates of the most played ...</p>
+                    <img src="Assets/l5img4.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Biggest Haryana hits</span>
+                        <span class="one">from the last 10 year...</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l5img5.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Ultimate 101 Punjabi &nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Hits with Shubh</span>
+                    </div>
                 </div>
 
+                <div class="card">
+                    <img src="Assets/l5img6.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Finest collection of Tamil&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Music from the past 10...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l5img7.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">The finest set of Telgu</span>
+                        <span class="one">music from the past 10...</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l5img8.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Finest collection of Tamil&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Music from the past 10...</span>
+                    </div>
+                </div>
             </div>
+
+            <h2>Popular artists</h2>
+            <div class="cards-container">
+                <div class="card card6">
+                    <img class="card-img" src="Assets/l6img1.png">
+                    <div class="name">
+                        <span>Arijit Singh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+
+                </div>
+
+                <div class="card card6">
+                    <img src="Assets/l6img2.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Udit Narayan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+                </div>
+
+                <div class="card card6">
+                    <img src="Assets/l6img3.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Vishal Mishra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+                </div>
+
+                <div class="card card6">
+                    <img src="Assets/l6img4.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Atif Aslam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+                </div>
+                <div class="card card6">
+                    <img src="Assets/l6img5.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>A.R.Rahman&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+                </div>
+
+                <div class="card card6">
+                    <img src="Assets/l6img6.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Anirudh
+                            Ravichander&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+                </div>
+
+                <div class="card card6">
+                    <img src="Assets/l6img7.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Jasleen Royal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+                </div>
+                <div class="card card6">
+                    <img src="Assets/l6img8.png" class="card-img" alt="">
+                    <div class="name">
+                        <span>Pritam&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="one">Artist</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2>More of what you like</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img class="card-img" src="Assets/l7img1.png">
+                    <div class="name">
+                        <span class="one">Bollywood songs that</span>
+                        <span class="one">ruled hearts in the...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l7img2.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Fall love with 00's</span>
+                        <span class="one">Bollywood like never...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l7img3.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Essential tracks of</span>
+                        <span class="one">Emraan Hashmi, all in o...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l7img4.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Essential tracks penned</span>
+                        <span class="one">down by Javed Akhtar...</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l7img5.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Essential tracks of</span>
+                        <span class="one">Shahid Kapoor, all in on...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l7img6.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Essential tracks of</span>
+                        <span class="one">Katrina Kaif, all in one...</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="Assets/l7img7.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Essential tracks of Saif Ali</span>
+                        <span class="one">Khan, all in one playlist</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="Assets/l7img8.png" class="card-img" alt="">
+                    <div class="name">
+                        <span class="one">Essential tracks penned</span>
+                        <span class="one">down by Manoj...</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="footer">
-                <div class="line"></div>
+                <div class="box">
+                    <span class="head">Company</span>
+                    <span>About</span>
+                    <span>Jobs</span>
+                    <span>For the Record</span>
+                </div>
+                <div class="box">
+                    <span class="head">Communities</span>
+                    <span>For Artists</span>
+                    <span>Developers</span>
+                    <span>Advertising</span>
+                    <span>Investors</span>
+                    <span>Vendors</span>
+                </div>
+                <div class="box">
+                    <span class="head">Useful links</span>
+                    <span>Support</span>
+                    <span>Free Mobile App</span>
+                </div>
+                <div class="box">
+                    <span class="head">Spotify Plans</span>
+                    <span>Premium Individual</span>
+                    <span>Premium Duo</span>
+                    <span>Premium Family</span>
+                    <span>Premium Student</span>
+                    <span> Spotify Free</span>
+                </div>
+                <div class="box1">
+                    <div class="socialmedia"><i class="fa-brands fa-facebook"></i></div>
+                    <div class="socialmedia"><i class="fa-brands fa-twitter"></i></div>
+                    <div class="socialmedia"><i class="fa-brands fa-instagram"></i></div>
+                </div>
+            </div>
+            <div class="break"></div>
+            <div class="last">
+                <div class="last1">
+                    <span>Legal</span>
+                    <span>Safety & Privacy Center</span>
+                    <span>Privacy Policy</span>
+                    <span>Cookies</span>
+                    <span>About Ads</span>
+                    <span>Accessibility</span>
+                </div>
+                <span class="last2">&copy;2025 Spotify AB</span>
             </div>
         </div>
+
+
         <div class="music-player">
             <div class="album">
-                <img src="Assets/card2img.jpeg">
+                <img src="Assets/jhol.png">
                 <div class="song-details">
                     <p class="song">Daylight</p>
                     <p class="artist">Arijit Singh</p>
@@ -381,46 +814,112 @@
 
             </div>
             <div class="player">
-                <div class="player-controls">
-                    <img src="Assets/player_icon1.png" class="player-control-icon">
-                    <img src="Assets/player_icon2.png" class="player-control-icon">
-                    <img src="Assets/player_icon3.png" class="player-control-icon" style="height: 2rem;">
-                    <img src="Assets/player_icon4.png" class="player-control-icon">
-                    <img src="Assets/player_icon5.png" class="player-control-icon">
+                <div id="progress-bar" onmousedown="startSeek(event)">
+                    <div id="current-time">0:00</div>
+                    <div id="progress-fill"></div>
+                    <div id="progress-thumb"></div>
+                    <div id="total-time">0:00</div>
                 </div>
-                <div class="playback-bar">
-                    <span class="curr_time">00:00</span>
-                    <input type="range" min="0" max="100" class="progress-bar" step="1">
-                    <span class="tot_time">3:33</span>
+
+                <div class="musicControls">
+                    <img src="Assets/player_icon1.png" alt="">
+                    <img src="Assets/player_icon2.png" alt="">
+                    <img src="Assets/player_icon3.png" alt="">
+                    <img src="Assets/player_icon4.png" alt="">
+                    <img src="Assets/player_icon5.png" alt="">
                 </div>
             </div>
-            <div class="controls"></div>
+
+            <div class="controls">
+                <div id="volume-container">
+                    <span>🔊</span>
+                    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" oninput="adjustVolume()">
+                </div>
+            </div>
+
+            <!-- Hidden Audio Player -->
+            <audio id="audio"></audio>
+
         </div>
-        <div class="music-navbar">
-            <div class="playedsong">
-                <h4>Satranga(Animal Movie)</h4>
-                <div class="playedsong_icon">
-                    <i class="fa-solid fa-ellipsis"></i>
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </div>
-            <div class="favorite">
-                <img src="Assets/satranga.png" alt="">
-                <p>Song by Arijit Singh</p>
-            </div>
-            <div class="Artist_profile">
-                <img src="Assets/arijitsingh.png" alt="">
-                <p>About the artist</p>
-                <div class="followers">
-                    <div class="listeners">
-                        <p>40,792,549</p>
-                        <p>monthly listeners</p>
+        <div class="music-details">
+            <div class="library">
+                <div class="lib-opt">
+                    <div class="options">
+                        <div class="lib-option">
+                            REELS TRENDING
+                        </div>
+                        <div class="icons">
+                            <div class="dot">...</div>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
                     </div>
-                    <button>Follow</button>
                 </div>
+                <div class="artist-follow">
+                    <div class="followers">
+                        <div class="add">
+                            <p>Jhol</p>
+                            <p>Maanu, Annural Khalid</p>
+                        </div>
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </div>
+                    <div class="artist-details">
+                        <div class="about">
+                            About the artist
+                        </div>
+                        <div class="follow">
+                            <p>
+                                Maanu
+                            </p>
+                            <div class="list">
+                                <div class="name">
+                                    <p>
+                                        5,066,963 monthly
+                                    </p>
+                                    <p>listeners</p>
+                                </div>
+                                <button>Follow</button>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="credits">
+                        <div class="top">
+                            <p>credits</p>
+                            <p>Show all</p>
+                        </div>
+                        <div class="follow">
+                            <div class="list">
+                                <p>
+                                    Annural Khalid
+                                </p>
+                                <p>
+                                    5,066,963 monthly
+                                </p>
+                            </div>
+
+                            <button>Follow</button>
+                        </div>
+                        <div class="follow">
+                            <div class="list">
+                                <p>
+                                    Annural Khalid
+                                </p>
+                                <p>
+                                    5,066,963 monthly
+                                </p>
+                            </div>
+
+                            <button>Follow</button>
+                        </div>
+                    </div>
+                    <div class="blank"></div>
+                </div>
+
+
             </div>
         </div>
     </div>
 </body>
+<script src="/app.js"></script>
 
 </html>
