@@ -1,6 +1,6 @@
 # 🎵 Spotify Website Clone
 
-A simple music streaming website built using HTML, CSS, and JavaScript, where users can \*\*search for their favorite songs and play them directly from the browser.
+A simple music streaming website built using HTML, CSS, and JavaScript, where users can search for their favorite songs and play them directly from the browser.
 
 ## 🚀 Features
 
