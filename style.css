@@ -139,6 +139,9 @@ h2 {
   border-top: 1px solid white;
   opacity: 0.4;
 }
+#search-container {
+  border: 1px solid transparent; /* Ensure the element has a border initially */
+}
 
 /*sidebar*/
 .sidebar {

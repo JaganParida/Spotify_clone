@@ -381,3 +381,22 @@ function hideThumb() {
 
 volumeSlider.addEventListener("mouseenter", showThumb);
 volumeSlider.addEventListener("mouseleave", hideThumb);
+
+/*input click*/
+document.addEventListener("DOMContentLoaded", function () {
+  const searchContainer = document.querySelector(".search-container");
+  const inputField = searchContainer.querySelector("input");
+
+  if (inputField) {
+    inputField.addEventListener("click", function (event) {
+      searchContainer.style.border = "3px solid white";
+      event.stopPropagation();
+    });
+  }
+
+  document.addEventListener("click", function (event) {
+    if (!searchContainer.contains(event.target)) {
+      searchContainer.style.border = "none";
+    }
+  });
+});
