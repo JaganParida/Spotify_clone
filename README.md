@@ -1,10 +1,19 @@
-# Spotify Clone
+# 🎵 Spotify Website Clone
 
-A Spotify UI clone project using only HTML and CSS focuses on recreating Spotify's sleek design, including a responsive layout, navigation bar, sidebar, music player, and playlists without any functionality.Here also use bootstrap framework for better look.
+A simple music streaming website built using HTML, CSS, and JavaScript, where users can \*\*search for their favorite songs and play them directly from the browser.
 
-# Note
+## 🚀 Features
 
-Here also add the target tag for redirecting to original spotify website page for some songs.
+🔍 Search Songs – Users can search for songs by title. <br>
+▶️ Play Music – Songs can be played directly within the browser. <br>
+📱 Responsive Design – Works on both mobile and desktop. <br>
+🎨 Interactive UI – A clean and modern user interface. <br>
+
+## 🛠️ Technologies Used
+
+HTML – Structure of the website.<br>
+CSS – Styling for a visually appealing design.<br>
+JavaScript – Logic for searching and playing songs and also api for song.<br>
 
 # view live in this link
 
