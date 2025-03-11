@@ -226,7 +226,7 @@ function formatTime(seconds) {
 function adjustVolume() {
   elements.audio.volume = elements.volumeControl.value;
   const percentage = elements.volumeControl.value * 100;
-  elements.volumeControl.style.background = `linear-gradient(to right, #1DB954 ${percentage}%, gray ${percentage}%)`;
+  elements.volumeControl.style.background = `linear-gradient(to right, #1DB954 ${percentage}%, white ${percentage}%)`;
 
   elements.volumeIcon.classList.toggle("muted", elements.audio.volume === 0);
 }
@@ -346,3 +346,38 @@ function playSong(index) {
   elements.searchResultsContainer.style.display = "none";
   elements.searchInput.value = "";
 }
+
+/*Progress bar */
+document.addEventListener("DOMContentLoaded", function () {
+  const progressBar = document.getElementById("progress-bar");
+  const progressThumb = document.getElementById("progress-thumb");
+  const progressFill = document.getElementById("progress-fill");
+
+  if (progressBar && progressThumb) {
+    progressThumb.style.display = "none"; // Initially hide the progress thumb
+    progressFill.style.backgroundColor = "white";
+
+    progressBar.addEventListener("mouseenter", function () {
+      progressThumb.style.display = "block"; // Show on hover
+      progressFill.style.backgroundColor = "#1db954";
+    });
+
+    progressBar.addEventListener("mouseleave", function () {
+      progressThumb.style.display = "none"; // Hide when not hovering
+      progressFill.style.backgroundColor = "white";
+    });
+  }
+});
+
+const volumeSlider = document.getElementById("volume");
+
+function showThumb() {
+  volumeSlider.style.setProperty("--thumb-opacity", "1");
+}
+
+function hideThumb() {
+  volumeSlider.style.setProperty("--thumb-opacity", "0");
+}
+
+volumeSlider.addEventListener("mouseenter", showThumb);
+volumeSlider.addEventListener("mouseleave", hideThumb);

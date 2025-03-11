@@ -743,21 +743,23 @@ button {
   position: absolute;
   height: 100%;
   width: 0%;
-  background: #1db954;
+  background: #ffffff;
   border-radius: 2px;
   transition: width 0.1s linear;
 }
+
 #progress-thumb {
   position: absolute;
   width: 12px;
   height: 12px;
-  background: #1db954;
+  background: #ffffff;
   border-radius: 50%;
   top: -4px;
   left: 0%;
   transform: translateX(-50%);
   transition: left 0.1s linear;
 }
+
 #current-time,
 #total-time {
   font-size: 12px;
@@ -804,47 +806,6 @@ Music Controls .musicControls {
   font-size: 20px;
   cursor: pointer;
 }
-#volume {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100px;
-  height: 4px;
-  background: #535353;
-  border-radius: 5px;
-  outline: none;
-  transition: background 0.3s;
-}
-#volume::-webkit-slider-thumb {
-  top: -4px;
-  position: relative;
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px;
-  height: 12px;
-  background: #1db954;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-#volume::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-}
-#volume::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
-  background: #1db954;
-  border-radius: 50%;
-  cursor: pointer;
-}
-#volume::-webkit-slider-runnable-track {
-  height: 4px;
-  background: linear-gradient(
-    to right,
-    #1db954 var(--progress),
-    #535353 var(--progress)
-  );
-  border-radius: 5px;
-}
 
 /* Sound Control Layout */
 .sound-control {
@@ -869,46 +830,74 @@ Music Controls .musicControls {
 
 /* Hide default slider */
 #volume {
+  width: 100px;
+  appearance: none;
   -webkit-appearance: none;
-  width: 105px;
+  background: #ffffff;
   height: 5px;
-  background: linear-gradient(to right, #1db954 100%, gray 0%);
   border-radius: 5px;
   cursor: pointer;
-  outline: none;
-  transition: background 0.2s ease-in-out;
 }
 
-/* Custom Thumb */
+/* Custom thumb styling */
 #volume::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  background: #1db954;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
   border-radius: 50%;
-  cursor: pointer;
-  margin-top: -1px;
+  opacity: var(--thumb-opacity, 0);
+  transition: opacity 0.3s;
 }
 
 #volume::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
-  background: #1db954;
+  width: 15px;
+  height: 15px;
+  background: #ffffff;
   border-radius: 50%;
+  opacity: var(--thumb-opacity, 0);
+  transition: opacity 0.3s;
+}
+
+.results {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#search-results {
+  display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  max-width: 500px;
+}
+#search-results::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+#search-results::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+#search-results::-webkit-scrollbar-thumb {
+  background: #1db954;
   cursor: pointer;
 }
 
-#search-results {
-  display: inline-flex;
-  overflow-x: scroll;
-  justify-content: center;
-  width: 100%;
+/* Handle on hover */
+#search-results::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
-#search-results::-webkit-scrollbar {
-  display: none;
-}
+
 .song-item {
   margin: 5px;
+}
+.song-item p {
+  display: flex;
+  text-wrap: wrap;
 }
 
 @media (min-width: 320px) and (max-width: 1024px) {
