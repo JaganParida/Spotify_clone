@@ -6,6 +6,8 @@ The **Spotify Clone** is a web-based music streaming application built using **H
 
 ## Features
 
+Live view link is [spotify_clone](https://jaganparida.github.io/Spotify_clone/)
+
 - 🎵 **Play Your Favorite Song:** Search for a song and play it instantly.
 - 📜 **Playlist Functionality:** Play all songs available on the homepage.
 - 🔄 **Seamless Playback:** Smooth transition between tracks with play, pause, and next/previous song controls.
@@ -30,14 +32,12 @@ The **Spotify Clone** is a web-based music streaming application built using **H
    ```sh
    cd SPOTIFY_CLONE
    ```
-3. **Open**`index.html`**in your browser.**
+3. **Open \*\***`index.html`\***\* in your browser.**
 
 ## Contributions
 
 Contributions are welcome! Feel free to fork the repository and submit a pull request with improvements or new features.
 
+---
+
 Made with ❤️ by Jagan
-
-# view live in this link
-
-<a href="https://jaganparida.github.io/Spotify_clone/" target="_blank">Live_Link</a>
