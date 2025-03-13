@@ -30,7 +30,7 @@ The **Spotify Clone** is a web-based music streaming application built using **H
    ```sh
    cd SPOTIFY_CLONE
    ```
-3. **Open \*\***`index.html`\***\* in your browser.**
+3. **Open**`index.html`**in your browser.**
 
 ## Contributions
 
@@ -40,4 +40,4 @@ Made with ❤️ by Jagan
 
 # view live in this link
 
-<a href="https://jaganparida.github.io/Spotify_clone/">Live_Link</a>
+<a href="https://jaganparida.github.io/Spotify_clone/" target="_blank">Live_Link</a>
