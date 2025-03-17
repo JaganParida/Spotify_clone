@@ -939,8 +939,11 @@ Music Controls .musicControls {
   .install {
     display: none;
   }
+  .button-nav {
+    gap: 0;
+  }
   .trending a {
-    flex-basis: 158px;
+    flex-basis: 163px;
   }
   .singer {
     font-size: 10px;
