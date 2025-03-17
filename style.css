@@ -949,7 +949,7 @@ Music Controls .musicControls {
     display: none;
   }
   .player {
-    width: 64%;
+    width: 55%;
     margin-left: 0;
   }
   .top-navbar .search-bar .search-container {
