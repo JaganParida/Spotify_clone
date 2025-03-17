@@ -940,7 +940,7 @@ Music Controls .musicControls {
     display: none;
   }
   .trending a {
-    flex-basis: 185px;
+    flex-basis: 175px;
   }
   .album {
     display: none;
