@@ -21,7 +21,7 @@ const elements = {
 
 // Initial volume setup
 
-elements.audio.volume = elements.volumeControl.value = 0.5;
+elements.audio.volume = elements.volumeControl.value = 1;
 
 // Play and pause icons
 const playIcon = "M8 5V19L19 12L8 5Z";
