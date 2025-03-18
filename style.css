@@ -304,7 +304,7 @@ h2 {
   top: 0;
   background-color: #121212;
   border-radius: 5px;
-  gap: 15px;
+  gap: 5px;
 }
 .button-nav button {
   border-radius: 1000px;
@@ -443,6 +443,11 @@ h2 {
   justify-content: space-evenly;
   margin-bottom: 40px;
 }
+.footer .box1 a {
+  height: 40px;
+  text-decoration: none;
+  color: #6c6c6c;
+}
 .footer .box1 .socialmedia {
   height: 40px;
   width: 40px;
@@ -455,6 +460,9 @@ h2 {
 }
 .footer .box1 .socialmedia:hover {
   background-color: rgb(41, 41, 41);
+  cursor: pointer;
+}
+svg {
   cursor: pointer;
 }
 .break {
@@ -928,6 +936,11 @@ Music Controls .musicControls {
 .icons i:hover {
   opacity: 1;
 }
+@media (min-width: 320px) and (max-width: 1440px) {
+  .trending a {
+    flex-basis: 46%;
+  }
+}
 
 @media (min-width: 320px) and (max-width: 900px) {
   .main {
@@ -941,9 +954,6 @@ Music Controls .musicControls {
   }
   .button-nav {
     gap: 0;
-  }
-  .trending a {
-    flex-basis: 163px;
   }
   .singer {
     font-size: 10px;

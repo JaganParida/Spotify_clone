@@ -20,7 +20,7 @@
     <div class="top-navbar">
         <div class="logo"><img src="Assets/whitelogo.png" alt=""></div>
         <div class="search-bar">
-            <div class="home-icon">
+            <div title="Home" class="home-icon">
                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon" viewBox="0 0 24 24">
                     <path
                         d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732l-7.5-4.33z">
@@ -38,18 +38,22 @@
                 <input id="search" type="search" placeholder="What do you want to play?">
                 <div class="browse">
                     <span class="line"></span>
-                    <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon" viewBox="0 0 24 24">
-                        <path d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"></path>
-                        <path
-                            d="M1.513 9.37A1 1 0 0 1 2.291 9h19.418a1 1 0 0 1 .979 1.208l-2.339 11a1 1 0 0 1-.978.792H4.63a1 1 0 0 1-.978-.792l-2.339-11a1 1 0 0 1 .201-.837zM3.525 11l1.913 9h13.123l1.913-9H3.525zM4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4h-2V3H6v3H4V2z">
-                        </path>
-                    </svg>
+                    <span title="Browse">
+                        <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
+                            viewBox="0 0 24 24">
+                            <path d="M15 15.5c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"></path>
+                            <path
+                                d="M1.513 9.37A1 1 0 0 1 2.291 9h19.418a1 1 0 0 1 .979 1.208l-2.339 11a1 1 0 0 1-.978.792H4.63a1 1 0 0 1-.978-.792l-2.339-11a1 1 0 0 1 .201-.837zM3.525 11l1.913 9h13.123l1.913-9H3.525zM4 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v4h-2V3H6v3H4V2z">
+                            </path>
+                        </svg>
+                    </span>
+
                 </div>
             </div>
             <div class="premium">
-                <button>Explore premium</button>
+                <button title="Upgrade to premium">Explore premium</button>
             </div>
-            <div class="install">
+            <div title="Install" class="install">
                 <button><svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon" viewBox="0 0 16 16"
                         style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
                         <path
@@ -985,9 +989,15 @@
                     <span> Spotify Free</span>
                 </div>
                 <div class="box1">
-                    <div class="socialmedia"><i class="fa-brands fa-facebook"></i></div>
-                    <div class="socialmedia"><i class="fa-brands fa-twitter"></i></div>
-                    <div class="socialmedia"><i class="fa-brands fa-instagram"></i></div>
+                    <a href="https://www.instagram.com/spotify">
+                        <div class="socialmedia"><i class="fa-brands fa-instagram"></i></div>
+                    </a>
+                    <a href="https://x.com/spotify">
+                        <div class="socialmedia"><i class="fa-brands fa-twitter"></i></div>
+                    </a>
+                    <a href="https://www.facebook.com/Spotify">
+                        <div class="socialmedia"><i class="fa-brands fa-facebook"></i></div>
+                    </a>
                 </div>
             </div>
             <div class="break"></div>
@@ -1023,7 +1033,7 @@
                 <div class="player">
                     <audio id="audio"></audio>
                     <div class="musicControls">
-                        <span>
+                        <span title="Enable suffle">
                             <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                 viewBox="0 0 16 16"
                                 style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1035,7 +1045,7 @@
                                 </path>
                             </svg>
                         </span>
-                        <button id="prevBtn">
+                        <button title="Prev" id="prevBtn">
                             <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                 viewBox="0 0 16 16"
                                 style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1045,12 +1055,12 @@
                             </svg>
                         </button>
                         <!-- Play Button -->
-                        <button class="play-btn">
+                        <button title="Play" class="play-btn">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5V19L19 12L8 5Z"></path>
                             </svg>
                         </button>
-                        <button id="nextBtn">
+                        <button title="Next" id="nextBtn">
                             <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                 viewBox="0 0 16 16"
                                 style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1059,7 +1069,7 @@
                                 </path>
                             </svg>
                         </button>
-                        <span>
+                        <span title="Enable reapeat">
                             <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                 viewBox="0 0 16 16"
                                 style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1080,8 +1090,7 @@
                 <div class="controls">
                     <div id="volume-container">
                         <div class="sound-control">
-                            <!-- Spotify Volume Icon -->
-                            <span>
+                            <span title="Now playing view">
                                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                     viewBox="0 0 16 16"
                                     style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1091,7 +1100,7 @@
                                     </path>
                                 </svg>
                             </span>
-                            <span>
+                            <span title="Lyrics">
                                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                     viewBox="0 0 16 16"
                                     style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1100,7 +1109,7 @@
                                     </path>
                                 </svg>
                             </span>
-                            <span>
+                            <span title="Queue">
                                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                     viewBox="0 0 16 16"
                                     style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1109,7 +1118,7 @@
                                     </path>
                                 </svg>
                             </span>
-                            <span>
+                            <span title="Connect to a device">
                                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="e-9640-icon"
                                     viewBox="0 0 16 16"
                                     style="--encore-icon-height: var(--encore-graphic-size-decorative-smaller); --encore-icon-width: var(--encore-graphic-size-decorative-smaller);">
@@ -1118,9 +1127,9 @@
                                     </path>
                                 </svg>
                             </span>
-                            <span id="volume-icon" onclick="toggleMute()"><svg data-encore-id="icon" role="presentation"
-                                    aria-label="Volume high" aria-hidden="false" class="e-9640-icon" id="volume-icon"
-                                    viewBox="0 0 16 16"
+                            <span title="Mute" id="volume-icon" onclick="toggleMute()"><svg data-encore-id="icon"
+                                    role="presentation" aria-label="Volume high" aria-hidden="false" class="e-9640-icon"
+                                    id="volume-icon" viewBox="0 0 16 16"
                                     style="--encore-icon-height: var(--encore-graphic-size-informative-smaller); --encore-icon-width: var(--encore-graphic-size-informative-smaller);">
                                     <path
                                         d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z">
