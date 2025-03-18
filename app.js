@@ -330,10 +330,12 @@ function playSong(index) {
   const songTitleElement = document.querySelector(".song");
   const artistNameElement = document.querySelector(".artist");
   const albumImageElement = document.querySelector(".album img");
+  const album1ImageElement = document.querySelector(".album1 img");
 
   if (songTitleElement) songTitleElement.textContent = songs[index].title;
   if (artistNameElement) artistNameElement.textContent = songs[index].artist;
   if (albumImageElement) albumImageElement.src = songs[index].image;
+  if (album1ImageElement) album1ImageElement.src = songs[index].image;
 
   // Update music details
   updateMusicDetails(
