@@ -277,6 +277,40 @@ h2 {
 .singer-list .liked img {
   border-radius: 5px;
 }
+.circlePlay1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1db954;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  left: 150px;
+  top: 9px;
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 0.2s ease-in;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.circlePlay1 svg {
+  height: 18px;
+}
+
+.famous-songs {
+  position: relative;
+}
+
+.famous-songs:hover .circlePlay1 {
+  opacity: 1;
+}
+
+.circlePlay1:hover {
+  scale: 1.1;
+}
 
 /*layout*/
 .main {
@@ -416,6 +450,43 @@ h2 {
 .card-info {
   font-size: 0.85rem;
   opacity: 0.8;
+}
+.circlePlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1db954;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  position: absolute;
+  top: 115px;
+  right: 19px;
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-in, transform 0.4s ease-in;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.circlePlay svg {
+  height: 20px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease-in;
+}
+
+.card:hover .circlePlay {
+  transform: translateY(-8px);
+  opacity: 1;
+}
+
+.circlePlay:hover {
+  scale: 1.1;
 }
 
 /*.footer-box*/
