@@ -402,3 +402,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+/*search-input field */
+
+const input = document.getElementById("search");
+const clearBtn = document.getElementById("clearBtn");
+
+input.addEventListener("input", () => {
+  if (input.value.trim() !== "") {
+    clearBtn.style.display = "inline";
+  } else {
+    clearBtn.style.display = "none";
+  }
+});
+
+clearBtn.addEventListener("click", () => {
+  input.value = "";
+  clearBtn.style.display = "none";
+  input.focus();
+});
