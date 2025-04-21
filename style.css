@@ -39,7 +39,7 @@ h2 {
 }
 .top-navbar .search-bar {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   align-items: center;
 }
@@ -59,15 +59,25 @@ h2 {
   height: 24px;
   fill: currentColor;
 }
+
+.top-navbar .search-bar #results {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
 .top-navbar .search-bar .search-container {
-  background-color: rgba(42, 42, 42, 0.9);
+  background-color: #1f1f1f;
   border-radius: 1000px;
   height: 48px;
   padding: 0px 10px 0px 10px;
-  width: 30%;
+  width: 100%;
   display: inline-flex;
   align-items: center;
 }
+
 .top-navbar .search-bar .search-container:hover {
   background-color: rgba(42, 42, 42, 1);
 }
@@ -111,6 +121,13 @@ h2 {
 .top-navbar .search-bar .search-container input:focus {
   outline: none;
 }
+
+.top-navbar .extra-btn {
+  width: 60%;
+  display: inline-flex;
+  justify-content: center;
+}
+
 .top-navbar .premium button {
   background-color: #fff;
   color: black;
@@ -140,7 +157,59 @@ h2 {
   opacity: 0.4;
 }
 #search-container {
-  border: 1px solid transparent; /* Ensure the element has a border initially */
+  border: 1px solid transparent;
+}
+
+#search-results {
+  position: absolute;
+  z-index: 9999;
+  top: 56px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  max-height: 350px;
+  padding: 8px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+#search-results .song-item {
+  display: inline-flex;
+  align-items: center;
+  margin: 8px;
+}
+#search-results .song-item img {
+  height: 50px;
+  width: 50px;
+  border-radius: 2px;
+}
+
+#search-results::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+#search-results::-webkit-scrollbar-track {
+  background: #cec8c8;
+}
+
+/* Handle */
+#search-results::-webkit-scrollbar-thumb {
+  background: #5b5c5b;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+#search-results::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /*sidebar*/
@@ -282,11 +351,11 @@ h2 {
   justify-content: center;
   align-items: center;
   background-color: #1db954;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   position: absolute;
-  left: 150px;
+  right: 10px;
   top: 9px;
   opacity: 0;
   transform: translateY(0);
@@ -942,46 +1011,6 @@ Music Controls .musicControls {
   transition: opacity 0.3s;
 }
 
-.results {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-#search-results {
-  display: flex;
-  white-space: nowrap;
-  overflow-x: auto;
-  max-width: 500px;
-}
-#search-results::-webkit-scrollbar {
-  width: 10px;
-  height: 5px;
-}
-
-/* Track */
-#search-results::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-#search-results::-webkit-scrollbar-thumb {
-  background: #1db954;
-  cursor: pointer;
-}
-
-/* Handle on hover */
-#search-results::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-.song-item {
-  margin: 5px;
-}
-.song-item p {
-  display: flex;
-  text-wrap: wrap;
-}
-
 @media (min-width: 320px) and (max-width: 1024px) {
   .trending {
     display: flex;
@@ -1028,10 +1057,7 @@ Music Controls .musicControls {
   .main {
     margin: 0px 0px 10px 10px;
   }
-  .premium {
-    display: none;
-  }
-  .install {
+  .top-navbar .extra-btn {
     display: none;
   }
   .button-nav {
@@ -1054,8 +1080,15 @@ Music Controls .musicControls {
     margin-left: -15px;
   }
   .top-navbar .search-bar .search-container {
+    width: 100%;
+  }
+  .top-navbar .search-bar {
+    justify-content: center;
+  }
+  .top-navbar .search-bar #results {
     width: 78%;
   }
+
   .sound-control #volume-icon {
     display: inline-block;
   }

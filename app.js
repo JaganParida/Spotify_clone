@@ -88,7 +88,7 @@ function displaySearchResults(songs) {
     .map(
       (song) => `
     <div class="song-item" onclick="playSong(${song.index})">
-      <img src="${song.image}" alt="${song.title}" style="width: 100px; height: 100px; border-radius: 10px;">
+      <img src="${song.image}" alt="${song.title}">
       <p>${song.title}</p>
     </div>
   `
