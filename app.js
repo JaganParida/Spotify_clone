@@ -226,10 +226,38 @@ function formatTime(seconds) {
 function adjustVolume() {
   elements.audio.volume = elements.volumeControl.value;
   const percentage = elements.volumeControl.value * 100;
-  elements.volumeControl.style.background = `linear-gradient(to right, #1DB954 ${percentage}%, white ${percentage}%)`;
-
   elements.volumeIcon.classList.toggle("muted", elements.audio.volume === 0);
 }
+
+const volumeControl = elements.volumeControl;
+
+// Update background gradient based on value and desired fill color
+function updateSliderBackground(fillColor) {
+  const percentage = (volumeControl.value / volumeControl.max) * 100;
+  volumeControl.style.background = `linear-gradient(to right, ${fillColor} ${percentage}%, #535353 ${percentage}%)`;
+}
+
+// Show thumb and apply Spotify green on hover
+function handleMouseEnter() {
+  updateSliderBackground("#1db954");
+  volumeControl.style.setProperty("--thumb-opacity", "1");
+}
+
+// Hide thumb and revert fill to white
+function handleMouseLeave() {
+  updateSliderBackground("#fff");
+  volumeControl.style.setProperty("--thumb-opacity", "0");
+}
+
+// Update fill color dynamically as user drags slider
+volumeControl.addEventListener("input", function () {
+  const isHovered = volumeControl.matches(":hover");
+  updateSliderBackground(isHovered ? "#1db954" : "#fff");
+});
+
+// Mouse enter and leave listeners
+volumeControl.addEventListener("mouseenter", handleMouseEnter);
+volumeControl.addEventListener("mouseleave", handleMouseLeave);
 
 function toggleMute() {
   if (elements.audio.volume > 0) {
@@ -357,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (progressBar && progressThumb) {
     progressThumb.style.display = "none"; // Initially hide the progress thumb
-    progressFill.style.backgroundColor = "white";
+    progressFill.style.backgroundColor = "gray";
 
     progressBar.addEventListener("mouseenter", function () {
       progressThumb.style.display = "block"; // Show on hover
@@ -370,19 +398,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-const volumeSlider = document.getElementById("volume");
-
-function showThumb() {
-  volumeSlider.style.setProperty("--thumb-opacity", "1");
-}
-
-function hideThumb() {
-  volumeSlider.style.setProperty("--thumb-opacity", "0");
-}
-
-volumeSlider.addEventListener("mouseenter", showThumb);
-volumeSlider.addEventListener("mouseleave", hideThumb);
 
 /*input click*/
 document.addEventListener("DOMContentLoaded", function () {

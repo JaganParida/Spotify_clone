@@ -1009,9 +1009,12 @@ Music Controls .musicControls {
 .volume-icon {
   width: 20px;
   height: 20px;
-  fill: white; /* Default color */
+  fill: gray; /* Default color */
   cursor: pointer;
   transition: fill 0.3s ease-in-out;
+}
+.volume-icon:hover {
+  fill: #1db954;
 }
 
 /* When Muted */
@@ -1024,7 +1027,7 @@ Music Controls .musicControls {
   width: 100px;
   appearance: none;
   -webkit-appearance: none;
-  background: #ffffff;
+  background: #535353;
   height: 5px;
   border-radius: 5px;
   cursor: pointer;
@@ -1049,6 +1052,40 @@ Music Controls .musicControls {
   border-radius: 50%;
   opacity: var(--thumb-opacity, 0);
   transition: opacity 0.3s;
+}
+
+#volumeControl {
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #1db954 50%, #535353 50%);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#volumeControl::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 5px;
+}
+
+#volumeControl::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #1db954;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#volumeControl:focus::-webkit-slider-thumb {
+  background: #535353;
+}
+
+#volumeControl::-webkit-slider-thumb {
+  opacity: var(--thumb-opacity, 0);
+  transition: opacity 0.3s ease;
 }
 
 @media (min-width: 320px) and (max-width: 1024px) {
