@@ -180,6 +180,18 @@ h2 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
+#search-results {
+  display: none; /* Hide by default */
+  position: absolute;
+  background: #121212;
+  border: 1px solid #333;
+  border-radius: 5px;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
 #search-results .song-item {
   display: inline-flex;
   align-items: center;
@@ -731,12 +743,15 @@ svg {
 }
 .music-details .about {
   padding-top: 10px;
-  background-image: url(Assets/maanu.png);
-  height: 180px;
-  background-size: cover;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding: 10px;
+}
+.music-details .ArtistIcon .e-9911-icon {
+  color: #fff;
+  width: 100%;
+  height: 175px;
+  fill: #fff;
 }
 .music-details .artist-details {
   background-color: #1f1f1f;
@@ -1028,7 +1043,7 @@ Music Controls .musicControls {
   appearance: none;
   -webkit-appearance: none;
   background: #535353;
-  height: 5px;
+  height: 4px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -1037,8 +1052,8 @@ Music Controls .musicControls {
 #volume::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   background: #ffffff;
   border-radius: 50%;
   opacity: var(--thumb-opacity, 0);
@@ -1046,8 +1061,8 @@ Music Controls .musicControls {
 }
 
 #volume::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   background: #ffffff;
   border-radius: 50%;
   opacity: var(--thumb-opacity, 0);
@@ -1086,6 +1101,35 @@ Music Controls .musicControls {
 #volumeControl::-webkit-slider-thumb {
   opacity: var(--thumb-opacity, 0);
   transition: opacity 0.3s ease;
+}
+
+/*loader*/
+#loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top: 6px solid #1db954;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @media (min-width: 320px) and (max-width: 1024px) {
@@ -1193,4 +1237,12 @@ Music Controls .musicControls {
   .album1 {
     display: none;
   }
+}
+
+.volume-icon.muted::before {
+  content: "🔇"; /* You can customize this or use SVG */
+}
+
+.volume-icon::before {
+  content: "🔊";
 }
