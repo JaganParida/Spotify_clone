@@ -6,21 +6,11 @@ The **Spotify Clone** is a web-based music streaming application built using **H
 
 ## Features
 
-Live view link is [spotify_clone](https://jaganparida.github.io/Spotify_clone/)
-
 - 🎵 **Play Your Favorite Song:** Search for a song and play it instantly.
 - 📜 **Playlist Functionality:** Play all songs available on the homepage.
 - 🔄 **Seamless Playback:** Smooth transition between tracks with play, pause, and next/previous song controls.
 - 🎚 **Volume & Seek Control:** Adjust volume and seek within the track.
 - 🎨 **Responsive UI:** Modern and user-friendly design that adapts to different screen sizes.
-
-## Technologies Used
-
-- **HTML** - For structuring the web pages.
-- **CSS** - For styling and creating a visually appealing interface.
-- **JavaScript** - For adding interactivity and handling music playback.
-- **Spotify Music Embed** - For embedding Spotify music.
-- **JioSaavn API** - For fetching and streaming songs.
 
 ## How to Run the Project
 
@@ -38,6 +28,6 @@ Live view link is [spotify_clone](https://jaganparida.github.io/Spotify_clone/)
 
 Contributions are welcome! Feel free to fork the repository and submit a pull request with improvements or new features.
 
----
+##
 
 Made with ❤️ by Jagan
