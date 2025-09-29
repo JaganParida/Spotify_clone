@@ -1246,3 +1246,6 @@ Music Controls .musicControls {
 .volume-icon::before {
   content: "🔊";
 }
+.TrackListWidget_widgetContainer__VVETD {
+  border-radius: none !important;
+}
