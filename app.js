@@ -313,3 +313,25 @@ async function fetchSongs(query) {
     document.getElementById("loader-overlay").style.display = "none"; // Hide loader
   }
 }
+
+let musicdetails = document.querySelector(".music-details");
+let closeBar = document.querySelector(".closeBar");
+
+if (closeBar && musicdetails) {
+  closeBar.addEventListener("click", () => {
+    musicdetails.style.display = "none";
+  });
+}
+
+let album = document.querySelector(".album");
+album.addEventListener("click", () => {
+  musicdetails.style.display = "block";
+});
+
+let searchcontainer = document.querySelector(".search-container");
+
+if (searchcontainer) {
+  searchcontainer.addEventListener("click", () => {
+    searchcontainer.style.border.toggle = "3px solid white";
+  });
+}

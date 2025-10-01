@@ -1249,3 +1249,7 @@ Music Controls .musicControls {
 .TrackListWidget_widgetContainer__VVETD {
   border-radius: none !important;
 }
+
+.search-container:focus-within {
+  border: 3px solid white;
+}
