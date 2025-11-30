@@ -1,7 +1,12 @@
+/* =========================================
+   1. GLOBAL VARIABLES & SELECTORS
+   ========================================= */
 let songs = [];
 let currentSongIndex = 0;
 let isDragging = false;
+let searchTimeout;
 
+// Centralized access to DOM elements
 const elements = {
   audio: document.getElementById("audio"),
   playPauseBtn: document.querySelector(".play-btn svg path"),
@@ -17,27 +22,48 @@ const elements = {
   progressBar: document.getElementById("progress-bar"),
   progressFill: document.getElementById("progress-fill"),
   progressThumb: document.getElementById("progress-thumb"),
+  // Optional elements (checked before use to prevent crashes)
+  loader: document.getElementById("loader-overlay"),
+  musicDetails: document.querySelector(".music-details"),
+  closeBar: document.querySelector(".closeBar"),
+  album: document.querySelector(".album"),
+  searchContainer: document.querySelector(".search-container"),
 };
 
-// Initial volume setup
-elements.audio.volume = elements.volumeControl.value = 1;
-
-// Play and pause icons
+// SVG Icons
 const playIcon = "M8 5V19L19 12L8 5Z";
 const pauseIcon = "M6 4H10V20H6V4ZM14 4H18V20H14V4Z";
 
-const updatePlayPauseButton = (isPlaying) => {
-  elements.playPauseBtn.setAttribute("d", isPlaying ? pauseIcon : playIcon);
-};
+/* =========================================
+   2. INITIALIZATION
+   ========================================= */
 
-let searchTimeout;
+window.addEventListener("DOMContentLoaded", () => {
+  // Hide search results initially
+  if (elements.searchResultsContainer) {
+    elements.searchResultsContainer.style.display = "none";
+  }
+  // Set initial volume
+  if (elements.audio && elements.volumeControl) {
+    elements.audio.volume = 1;
+    elements.volumeControl.value = 1;
+    updateSliderBackground("#1db954");
+  }
+});
+
+/* =========================================
+   3. SEARCH & FETCH LOGIC (iTunes API - No CORS Errors)
+   ========================================= */
+
 elements.searchInput.addEventListener("input", () => {
   const query = elements.searchInput.value.trim();
+
   if (!query) {
     elements.searchResultsContainer.style.display = "none";
     return;
   }
 
+  // Debounce: Wait 500ms after typing stops before searching
   clearTimeout(searchTimeout);
   searchTimeout = setTimeout(() => {
     fetchSongs(query);
@@ -46,88 +72,88 @@ elements.searchInput.addEventListener("input", () => {
 
 async function fetchSongs(query) {
   try {
-    elements.searchResultsContainer.innerHTML = `<p>Loading...</p>`;
+    // Show loader
+    if (elements.loader) elements.loader.style.display = "flex";
+
+    elements.searchResultsContainer.style.display = "block";
+    elements.searchResultsContainer.innerHTML = `<p style="padding:10px; color:white;">Searching...</p>`;
+
+    // API CALL: iTunes API (Free, Stable, Works on Localhost)
     const response = await fetch(
-      `https://saavn.dev/api/search/songs?query=${query}`
+      `https://itunes.apple.com/search?term=${encodeURIComponent(
+        query
+      )}&media=music&entity=song&limit=15`
     );
+
+    if (!response.ok) throw new Error("Network response was not ok");
+
     const data = await response.json();
 
-    if (!data.data || !data.data.results.length) {
-      elements.searchResultsContainer.innerHTML = `<p style="color: red;">No songs found</p>`;
+    if (!data.results || data.results.length === 0) {
+      elements.searchResultsContainer.innerHTML = `<p style="color: red; padding:10px;">No songs found</p>`;
       return;
     }
 
-    songs = data.data.results.map((track, index) => ({
-      index,
-      title: track.name,
-      artist: track.primaryArtists
-        ? Array.isArray(track.primaryArtists)
-          ? track.primaryArtists.map((a) => a.name).join(", ")
-          : track.primaryArtists
-        : "Unknown Artist",
-      image: track.image?.[2]?.url || "Assets/defaultImg.png",
-      url:
-        track.downloadUrl?.[4]?.url ||
-        track.downloadUrl?.[2]?.url ||
-        track.downloadUrl?.[0]?.url,
-    }));
+    // MAP DATA: Convert iTunes data to our App's format
+    songs = data.results.map((track, index) => {
+      // Get High-Res Image (Replace 100x100 with 600x600)
+      const hdImage = track.artworkUrl100
+        ? track.artworkUrl100.replace("100x100bb", "600x600bb")
+        : "Assets/defaultImg.png";
+
+      return {
+        index: index,
+        title: track.trackName,
+        artist: track.artistName,
+        image: hdImage,
+        url: track.previewUrl, // 30-second preview
+      };
+    });
 
     displaySearchResults(songs);
   } catch (error) {
-    console.error("Error fetching songs:", error);
-    elements.searchResultsContainer.innerHTML = `<p style="color: red;">Error fetching songs</p>`;
+    console.error("Fetch error:", error);
+    elements.searchResultsContainer.innerHTML = `<p style="color: red; padding:10px;">Connection Error.</p>`;
+  } finally {
+    if (elements.loader) elements.loader.style.display = "none";
   }
 }
 
-function displaySearchResults(songs) {
-  elements.searchResultsContainer.innerHTML = songs
+function displaySearchResults(songList) {
+  elements.searchResultsContainer.innerHTML = songList
     .map(
       (song) => `
-      <div class="song-item" onclick="playSong(${song.index})">
-        <img src="${song.image}" alt="${song.title}">
-        <p>${song.title}</p>
+      <div class="song-item" onclick="playSong(${song.index})" style="display:flex; align-items:center; padding:8px; cursor:pointer; border-bottom:1px solid #333;">
+        <img src="${song.image}" alt="${song.title}" style="width:40px; height:40px; border-radius:4px; margin-right:10px; object-fit: cover;">
+        <div style="overflow:hidden;">
+            <p style="margin:0; font-weight:bold; color:white; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${song.title}</p>
+            <p style="margin:0; font-size:12px; color:#ccc;">${song.artist}</p>
+        </div>
       </div>
     `
     )
     .join("");
-  elements.searchResultsContainer.style.display = "inline-flex";
+
+  elements.searchResultsContainer.style.display = "block";
 }
 
-function updateSongDetails(containerSelector, index) {
-  const container = document.querySelector(containerSelector);
-  if (!container) return;
+/* =========================================
+   4. PLAYER LOGIC
+   ========================================= */
 
-  const songTitleElement = container.querySelector(".song");
-  const artistNameElement = container.querySelector(".artist");
-  const albumImageElement = container.querySelector("img");
-
-  if (songTitleElement) songTitleElement.textContent = songs[index].title;
-  if (artistNameElement) artistNameElement.textContent = songs[index].artist;
-  if (albumImageElement) albumImageElement.src = songs[index].image;
-}
-
-function updateMusicDetails(imageUrl, songTitle, artistName) {
-  const libOpt = document.querySelector(".music-details .lib-opt");
-  if (libOpt) libOpt.style.backgroundImage = `url(${imageUrl})`;
-
-  const songTitleElement = document.querySelector(
-    ".followers .add p:first-child"
-  );
-  if (songTitleElement) songTitleElement.textContent = songTitle;
-
-  const artistNameElement = document.querySelector(
-    ".followers .add p:last-child"
-  );
-  if (artistNameElement) artistNameElement.textContent = artistName;
-}
-
-function playSong(index) {
+// Expose playSong to window so HTML 'onclick' can find it
+window.playSong = function (index) {
   if (!songs[index]?.url) return;
 
   currentSongIndex = index;
   elements.audio.src = songs[index].url;
-  elements.audio.play();
 
+  elements.audio
+    .play()
+    .then(() => updatePlayPauseButton(true))
+    .catch((err) => console.error("Playback failed:", err));
+
+  // Update UI with new song info
   updateSongDetails(".album", index);
   updateSongDetails(".album1", index);
   updateMusicDetails(
@@ -136,29 +162,14 @@ function playSong(index) {
     songs[index].artist
   );
 
-  updatePlayPauseButton(true);
+  // Hide search results
   elements.searchResultsContainer.style.display = "none";
   elements.searchInput.value = "";
+};
+
+function updatePlayPauseButton(isPlaying) {
+  elements.playPauseBtn.setAttribute("d", isPlaying ? pauseIcon : playIcon);
 }
-
-elements.audio.addEventListener("timeupdate", updateProgressBar);
-elements.audio.addEventListener("loadedmetadata", () => {
-  elements.totalTimeDisplay.textContent = formatTime(elements.audio.duration);
-});
-elements.audio.addEventListener("ended", nextSong);
-elements.volumeControl.addEventListener("input", adjustVolume);
-document.querySelector(".play-btn").addEventListener("click", togglePlay);
-elements.nextSongBtn.addEventListener("click", nextSong);
-elements.prevSongBtn.addEventListener("click", prevSong);
-
-document.addEventListener("click", (event) => {
-  if (
-    !elements.searchInput.contains(event.target) &&
-    !elements.searchResultsContainer.contains(event.target)
-  ) {
-    elements.searchResultsContainer.style.display = "none";
-  }
-});
 
 function togglePlay() {
   if (elements.audio.paused) {
@@ -170,23 +181,97 @@ function togglePlay() {
   }
 }
 
-function updateProgressBar() {
-  if (isDragging) return;
-  const progress = (elements.audio.currentTime / elements.audio.duration) * 100;
-  elements.progressFill.style.width =
-    elements.progressThumb.style.left = `${progress}%`;
-  elements.currentTimeDisplay.textContent = formatTime(
-    elements.audio.currentTime
-  );
+function nextSong() {
+  if (songs.length === 0) return;
+  playSong((currentSongIndex + 1) % songs.length);
 }
 
-elements.progressBar.addEventListener("click", (event) => {
+function prevSong() {
+  if (songs.length === 0) return;
+  playSong((currentSongIndex - 1 + songs.length) % songs.length);
+}
+
+/* =========================================
+   5. UI HELPERS (Details, Progress, Volume)
+   ========================================= */
+
+function updateSongDetails(selector, index) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  const titleEl = container.querySelector(".song");
+  const artistEl = container.querySelector(".artist");
+  const imgEl = container.querySelector("img");
+
+  if (titleEl) titleEl.textContent = songs[index].title;
+  if (artistEl) artistEl.textContent = songs[index].artist;
+  if (imgEl) imgEl.src = songs[index].image;
+}
+
+function updateMusicDetails(img, title, artist) {
+  const libOpt = document.querySelector(".music-details .lib-opt");
+  if (libOpt) libOpt.style.backgroundImage = `url(${img})`;
+
+  const followersTitle = document.querySelector(
+    ".followers .add p:first-child"
+  );
+  if (followersTitle) followersTitle.textContent = title;
+
+  const followersArtist = document.querySelector(
+    ".followers .add p:last-child"
+  );
+  if (followersArtist) followersArtist.textContent = artist;
+}
+
+function updateProgressBar() {
+  if (isDragging) return;
+  const { currentTime, duration } = elements.audio;
+  if (!duration) return;
+
+  const progress = (currentTime / duration) * 100;
+  elements.progressFill.style.width = `${progress}%`;
+  elements.progressThumb.style.left = `${progress}%`;
+  elements.currentTimeDisplay.textContent = formatTime(currentTime);
+}
+
+function formatTime(seconds) {
+  const min = Math.floor(seconds / 60);
+  const sec = Math.floor(seconds % 60);
+  return `${min}:${sec < 10 ? "0" : ""}${sec}`;
+}
+
+function updateSliderBackground(color) {
+  const val = elements.volumeControl.value;
+  const percentage = val * 100;
+  elements.volumeControl.style.background = `linear-gradient(to right, ${color} ${percentage}%, #535353 ${percentage}%)`;
+}
+
+/* =========================================
+   6. EVENT LISTENERS
+   ========================================= */
+
+// Audio Events
+elements.audio.addEventListener("timeupdate", updateProgressBar);
+elements.audio.addEventListener("loadedmetadata", () => {
+  elements.totalTimeDisplay.textContent = formatTime(elements.audio.duration);
+});
+elements.audio.addEventListener("ended", nextSong);
+
+// Button Events
+document.querySelector(".play-btn").addEventListener("click", togglePlay);
+elements.nextSongBtn.addEventListener("click", nextSong);
+elements.prevSongBtn.addEventListener("click", prevSong);
+
+// Progress Bar Dragging
+elements.progressBar.addEventListener("click", (e) => {
   const rect = elements.progressBar.getBoundingClientRect();
-  const offsetX = event.clientX - rect.left;
-  elements.audio.currentTime = (offsetX / rect.width) * elements.audio.duration;
+  const width = rect.width;
+  const clickX = e.clientX - rect.left;
+  elements.audio.currentTime = (clickX / width) * elements.audio.duration;
   updateProgressBar();
 });
 
+// Drag Logic for Progress Bar
 elements.progressThumb.addEventListener("mousedown", () => {
   isDragging = true;
   document.addEventListener("mousemove", handleProgressDrag);
@@ -211,127 +296,48 @@ function stopDragging(event) {
   updateProgressBar();
 }
 
-function nextSong() {
-  playSong((currentSongIndex + 1) % songs.length);
-}
-
-function prevSong() {
-  playSong((currentSongIndex - 1 + songs.length) % songs.length);
-}
-
-function formatTime(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds % 60);
-  return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
-}
-
-function adjustVolume() {
-  elements.audio.volume = elements.volumeControl.value;
-  const percentage = elements.volumeControl.value * 100;
-  elements.volumeIcon.classList.toggle("muted", elements.audio.volume === 0);
-}
-
-const volumeControl = elements.volumeControl;
-
-function updateSliderBackground(fillColor) {
-  const percentage = (volumeControl.value / volumeControl.max) * 100;
-  volumeControl.style.background = `linear-gradient(to right, ${fillColor} ${percentage}%, #535353 ${percentage}%)`;
-}
-
-function handleMouseEnter() {
+// Volume Control
+elements.volumeControl.addEventListener("input", (e) => {
+  elements.audio.volume = e.target.value;
   updateSliderBackground("#1db954");
-  volumeControl.style.setProperty("--thumb-opacity", "1");
-}
 
-function handleMouseLeave() {
-  updateSliderBackground("#fff");
-  volumeControl.style.setProperty("--thumb-opacity", "0");
-}
-
-volumeControl.addEventListener("input", function () {
-  const isHovered = volumeControl.matches(":hover");
-  updateSliderBackground(isHovered ? "#1db954" : "#fff");
-});
-
-volumeControl.addEventListener("mouseenter", handleMouseEnter);
-volumeControl.addEventListener("mouseleave", handleMouseLeave);
-
-function toggleMute() {
-  if (elements.audio.volume > 0) {
-    elements.audio.dataset.prevVolume = elements.audio.volume;
-    elements.audio.volume = 0;
-    elements.volumeControl.value = 0;
+  // Icon toggle
+  if (elements.audio.volume === 0) {
+    elements.volumeIcon.classList.add("muted");
   } else {
-    const prevVolume = elements.audio.dataset.prevVolume || 1;
-    elements.audio.volume = prevVolume;
-    elements.volumeControl.value = prevVolume;
+    elements.volumeIcon.classList.remove("muted");
   }
-  adjustVolume();
-}
-
-// Ensure search container is hidden on initial load
-window.addEventListener("DOMContentLoaded", () => {
-  elements.searchResultsContainer.style.display = "none";
 });
 
-/*loader */
-async function fetchSongs(query) {
-  try {
-    document.getElementById("loader-overlay").style.display = "flex"; // Show loader
-    elements.searchResultsContainer.innerHTML = `<p>Loading...</p>`;
-
-    const response = await fetch(
-      `https://saavn.dev/api/search/songs?query=${query}`
-    );
-    const data = await response.json();
-
-    if (!data.data || !data.data.results.length) {
-      elements.searchResultsContainer.innerHTML = `<p style="color: red;">No songs found</p>`;
-      return;
-    }
-
-    songs = data.data.results.map((track, index) => ({
-      index,
-      title: track.name,
-      artist: track.primaryArtists
-        ? Array.isArray(track.primaryArtists)
-          ? track.primaryArtists.map((a) => a.name).join(", ")
-          : track.primaryArtists
-        : "Unknown Artist",
-      image: track.image?.[2]?.url || "Assets/defaultImg.png",
-      url:
-        track.downloadUrl?.[4]?.url ||
-        track.downloadUrl?.[2]?.url ||
-        track.downloadUrl?.[0]?.url,
-    }));
-
-    displaySearchResults(songs);
-  } catch (error) {
-    console.error("Error fetching songs:", error);
-    elements.searchResultsContainer.innerHTML = `<p style="color: red;">Error fetching songs</p>`;
-  } finally {
-    document.getElementById("loader-overlay").style.display = "none"; // Hide loader
+// Click Outside Search to Close
+document.addEventListener("click", (e) => {
+  if (
+    !elements.searchInput.contains(e.target) &&
+    !elements.searchResultsContainer.contains(e.target)
+  ) {
+    elements.searchResultsContainer.style.display = "none";
   }
-}
+});
 
-let musicdetails = document.querySelector(".music-details");
-let closeBar = document.querySelector(".closeBar");
-
-if (closeBar && musicdetails) {
-  closeBar.addEventListener("click", () => {
-    musicdetails.style.display = "none";
+// Search Container Border Toggle
+if (elements.searchContainer) {
+  elements.searchContainer.addEventListener("click", () => {
+    if (elements.searchContainer.style.border.includes("white")) {
+      elements.searchContainer.style.border = "none";
+    } else {
+      elements.searchContainer.style.border = "3px solid white";
+    }
   });
 }
 
-let album = document.querySelector(".album");
-album.addEventListener("click", () => {
-  musicdetails.style.display = "block";
-});
-
-let searchcontainer = document.querySelector(".search-container");
-
-if (searchcontainer) {
-  searchcontainer.addEventListener("click", () => {
-    searchcontainer.style.border.toggle = "3px solid white";
+// Music Details Panel
+if (elements.closeBar && elements.musicDetails) {
+  elements.closeBar.addEventListener("click", () => {
+    elements.musicDetails.style.display = "none";
+  });
+}
+if (elements.album) {
+  elements.album.addEventListener("click", () => {
+    if (elements.musicDetails) elements.musicDetails.style.display = "block";
   });
 }
